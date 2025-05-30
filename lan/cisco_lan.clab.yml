@@ -10,36 +10,64 @@ topology:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:1.0.0
       startup-config: configs/r1.partial.conf
+      labels:
+        graph-posX: "715"
+        graph-posY: "405"
+        graph-groupLabelPos: bottom-center
     R2:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:1.0.0
       startup-config: configs/r2.partial.conf
+      labels:
+        graph-posX: "735"
+        graph-posY: "505"
+        graph-groupLabelPos: bottom-center
     R3:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:1.0.0
       startup-config: configs/r3.partial.conf
+      labels:
+        graph-posX: "655"
+        graph-posY: "525"
+        graph-groupLabelPos: bottom-center
     R4:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:1.0.0
       startup-config: configs/r4.partial.conf
+      labels:
+        graph-posX: "665"
+        graph-posY: "395"
+        graph-groupLabelPos: bottom-center
     R5:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:1.0.0
       startup-config: configs/r5.partial.conf
+      labels:
+        graph-posX: "605"
+        graph-posY: "515"
+        graph-groupLabelPos: bottom-center
     SW1:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:L2-1.0.0
       type: L2
       startup-config: configs/sw1.partial.conf
+      labels:
+        graph-posX: "675"
+        graph-posY: "465"
+        graph-groupLabelPos: bottom-center
     SW2:
       kind: cisco_iol
       image: vrnetlab/cisco_iol:L2-1.0.0
       type: L2
       startup-config: configs/sw2.partial.conf
+      labels:
+        graph-posX: "635"
+        graph-posY: "455"
+        graph-groupLabelPos: bottom-center
 
   links:
-    - endpoints: ["R1:e0/1", "SW1:e0/1"]
-    - endpoints: ["R2:e0/1", "SW1:e0/2"]
-    - endpoints: ["R3:e0/1", "SW1:e0/3"]
-    - endpoints: ["R4:e0/1", "SW2:e0/1"]
-    - endpoints: ["R5:e0/1", "SW2:e0/2"]
+    - endpoints: [ "R1:e0/1", "SW1:e0/1" ]
+    - endpoints: [ "R2:e0/1", "SW1:e0/2" ]
+    - endpoints: [ "R3:e0/1", "SW1:e0/3" ]
+    - endpoints: [ "R4:e0/1", "SW2:e0/1" ]
+    - endpoints: [ "R5:e0/1", "SW2:e0/2" ]
