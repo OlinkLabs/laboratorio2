@@ -1,0 +1,84 @@
+name: CISCO-Vlan-VTP
+
+mgmt:
+  network: eth0
+  ipv4-subnet: 20.0.0.0/28
+
+topology:
+  nodes:
+    R1:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:1.0.0
+      startup-config: configs/r1.partial.conf
+      labels:
+        graph-posX: "625"
+        graph-posY: "381"
+        graph-groupLabelPos: bottom-center
+    R2:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:1.0.0
+      startup-config: configs/r2.partial.conf
+      labels:
+        graph-posX: "552"
+        graph-posY: "417"
+        graph-groupLabelPos: bottom-center
+    R3:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:1.0.0
+      startup-config: configs/r3.partial.conf
+      labels:
+        graph-posX: "568"
+        graph-posY: "496"
+        graph-groupLabelPos: bottom-center
+    R4:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:1.0.0
+      startup-config: configs/r4.partial.conf
+      labels:
+        graph-posX: "791"
+        graph-posY: "450"
+        graph-groupLabelPos: bottom-center
+    R5:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:1.0.0
+      startup-config: configs/r5.partial.conf
+      labels:
+        graph-posX: "744"
+        graph-posY: "565"
+        graph-groupLabelPos: bottom-center
+    SW1:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:L2-1.0.0
+      type: L2
+      startup-config: configs/sw1.partial.conf
+      labels:
+        graph-posX: "616"
+        graph-posY: "445"
+        graph-groupLabelPos: bottom-center
+    SW2:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:L2-1.0.0
+      type: L2
+      startup-config: configs/sw2.partial.conf
+      labels:
+        graph-posX: "679"
+        graph-posY: "473"
+        graph-groupLabelPos: bottom-center
+    SW3:
+      kind: cisco_iol
+      image: vrnetlab/cisco_iol:L2-1.0.0
+      type: L2
+      startup-config: configs/sw3.partial.conf
+      labels:
+        graph-posX: "743"
+        graph-posY: "502"
+        graph-groupLabelPos: bottom-center
+
+  links:
+    - endpoints: [ "R1:e0/1", "SW1:e0/1" ]
+    - endpoints: [ "R2:e0/1", "SW1:e0/2" ]
+    - endpoints: [ "R3:e0/1", "SW1:e0/3" ]
+    - endpoints: [ "SW1:e1/1", "SW2:e0/1" ]
+    - endpoints: [ "SW2:e0/2", "SW3:e0/3" ]
+    - endpoints: [ "R4:e0/1", "SW3:e0/1" ]
+    - endpoints: [ "R5:e0/1", "SW3:e0/2" ]
